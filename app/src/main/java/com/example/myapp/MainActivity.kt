@@ -1,5 +1,6 @@
 package com.example.myapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             ref.setValue(userData)
                 .addOnSuccessListener {
                     Toast.makeText(this,"Data saved successfully",Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,DataFetch::class.java)
+                    startActivity(intent)
                 }
                 .addOnFailureListener{
                     Toast.makeText(this,"Data could not be saved",Toast.LENGTH_SHORT).show()
